@@ -126,10 +126,10 @@ menu:
     团队协作:
       default: /docs/rules/team ||
       Git: /docs/rules/team/git ||
+  旧版: /old/ ||
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  旧版文档中心: /old/ ||
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -169,7 +169,7 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: https://source.catrol.cn/icons/Catrol-lvj.png
+  url: https://source.catrol.cn/icons/Catrol-Animation-Flow-Cloud.gif
   # If true, the avatar will be dispalyed in circle.
   rounded: false
   # If true, the avatar will be rotated with the cursor.
