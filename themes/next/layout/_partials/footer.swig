@@ -42,7 +42,6 @@
   {%- endif %}
 </div>
 
-<!--
 {%- if theme.footer.powered %}
   <div class="powered-by">
     {%- set next_site = 'https://theme-next.org' %}
@@ -58,6 +57,5 @@
     <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ theme.add_this_id }}" async="async"></script>
   </div>
 {%- endif %}
--->
 
 {{- next_inject('footer') }}
