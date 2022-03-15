@@ -138,13 +138,33 @@ menu:
   规范:
     default: /rules/ || fa fa-flag
     团队协作:
-      default: /team || fa fa-download
+      default: /team || fa fa-users
       ' Git': /git || fa-brands fa-git-alt
       ' GitHub': /github || fa-brands fa-github
       ' Discord': /discord || fa-brands fa-discord
     编码样式:
       default: /style || fa fa-code
-
+      C/C++: /ccpp ||
+      ' C#': /csharp || fa-brands fa-microsoft
+      Python: /python || fa-brands fa-python
+      Julia: /julia ||
+      ' JavaScript': /javascript || fa-brands fa-js
+      TypeScript: /typescript ||
+      CSS3: /css || fa-brands fa-css3
+      Assembly: /assembly || fa fa-microchip
+      ' Java': /java || fa-brands fa-java
+      ' PHP': /php || fa-brands fa-php
+      Ruby: /ruby ||
+      Rust: /rust || fa-brands fa-rust
+      ' GO': /go || fa-brands fa-golang
+      Swift: /swift || fa-brands fa-swift
+      Vue: /vue || fa-brands fa-vuejs
+      React: /react || fa-brands fa-react
+      Lua: /lua ||
+      ' Kotlin': /kotlin || fa-brands fa-android
+      Delphi: /delphi ||
+      Shell: /shell || fa fa-terminal
+      SQL: /sql || fa fa-database
   旧版: /old/ || fa fa-wrench
   # home: / || fa fa-home
   #about: /about/ || fa fa-user
@@ -384,14 +404,14 @@ codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: normal
+  highlight_theme: night
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Show text copy result.
-    show_result: false
+    show_result: true
     # Available values: default | flat | mac
-    style:
+    style: mac
 
 back2top:
   enable: true
@@ -530,7 +550,7 @@ math:
 
   # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
   mathjax:
-    enable: false
+    enable: true
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem: false
 
