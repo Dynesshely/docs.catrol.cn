@@ -3,7 +3,7 @@ title: C/C++ - 编码样式
 ---
 
 # 名家经验
-特别声明: 感谢[@Ctkon](https://github.com/Ctkon)提供的经验
+特别声明: 感谢 [`@Ctkon`](https://github.com/Ctkon) 提供的经验
 总结提炼即是:
 1. #define 少使用宏定义, 定义常量时, 可以使用 const 关键字, 并且不适用 #define 定义关键词或者符号
 2. 多次使用的常量一定要使用 const 关键字
@@ -14,7 +14,7 @@ title: C/C++ - 编码样式
 
 以下是原文:
 ``` CPP
-#include<iostream>
+#include <iostream>
 #define e 2.78
 //define 的内容必须为公认的常量 拒绝"define int long long"
 const int maxn=1e6+7;
