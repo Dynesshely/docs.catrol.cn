@@ -157,9 +157,8 @@ menu:
       Ruby: /ruby ||
       Rust: /rust || fa-brands fa-rust
       ' GO': /go || fa-brands fa-golang
+      Scala: /scala ||
       Swift: /swift || fa-brands fa-swift
-      Vue: /vue || fa-brands fa-vuejs
-      React: /react || fa-brands fa-react
       Lua: /lua ||
       ' Kotlin': /kotlin || fa-brands fa-android
       Delphi: /delphi ||
