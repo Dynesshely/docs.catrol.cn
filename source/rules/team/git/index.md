@@ -21,6 +21,8 @@ title: 使用 Git 的项目合作
                 - [查看配置信息](#markdown-header-查看配置信息)
 - [代码更改与文件追踪](#markdown-header-代码更改与文件追踪)
 - [提交消息规范](#markdown-header-提交消息规范)
+    - [格式](#markdown-header-格式)
+    - [多行补充内容](#markdown-header-多行补充内容)
 - [分支简介](#markdown-header-分支简介)
 - [关于 Pull Request](#markdown-header-关于-pull-request)
 - [标签](#markdown-header-标签)
@@ -138,9 +140,51 @@ Delete   ->  已删除     ->  一般是已追踪的但是被删除的文件, �
 
 <a id="markdown-markdown-header-提交消息规范" name="markdown-header-提交消息规范"></a>
 # 提交消息规范
+在 Git 的使用中, 我们会使用 `git commit` 来提交我们的更改  
+这个命令可以使用 `-m "<消息>"` 参数指定提交消息  
+这个消息会被记录在提交记录中, 同时也会被显示在 GitHub 中  
+那么这个消息的格式便显得极为重要, 因为这能让协作者更好的理解你的更改  
+同时方便日后查错以及紧急回滚  
+以下是常青园使用的消息规范:  
+<a id="markdown-markdown-header-格式" name="markdown-header-格式"></a>
+## 格式
+``` GIT
+<EMOJI> <TYPE>(<SCOPE>): <SUBJECT>
+```
+其中: 
+* `<EMOJI>` 可选项, 表示一个表情符号, 与 `<TYPE>` 相对应, 使用它能够方便查找, 而且增加了趣味性
+* `<TYPE>` 表示提交类型, 可选项如下:
+    * 💾 `Feat`: 表示这次更改增加了新功能
+    * 🔧 `Fix`: 表示这次更改修复了一个 bug, 此类提交往往还携带 `Close #7.` 此类语句, 用于在 GitHub 上关闭一个 `issue`.
+    * 📄 `Docs`: 表示这次更改修改了文档
+    * 🎇 `Style`: 表示这次更改修改了代码风格, 但没有影响实质性的逻辑
+    * 🧩 `Refactor`: 表示这次更改重构了代码
+    * ✔️ `Test`: 表示这次更改测试了一个功能, 往往是单元测试, 同时在 `<SUBJECT>` 中也会包含测试的结果, 是否通过, 若未通过请将 `<EMOJI>` 更换为 ❌
+    * 📝 `Chore`: 表示这次更改修改了构建文件, 一般是项目维护程序或者是 IDE 生成的文件, 例如: .sln, .gitignore, makefile 等等
+* `<SCOPE>`: 可选项, 表示这次更改作用的范围, 可以是单个文件或者是文件夹的名称
+* `<SUBJECT>`: 主题消息, 用于大致描述更改的内容, 且与 `<TYPE>` 对应
+
+以下是几个 message 样例:  
+1. 💾 Feat(MainWindow.xaml.cs): Added a new view for user login.
+2. 🔧 Fix: Error on no clients was soluted. Close #14.
+3. 📄 Docs(README): New items added.
+4. 🎇 Style(All): Move '{' after function to new line.
+5. 🧩 Refactor: All `Student` class was created from `Human`.
+6. ✔️ Test: Fibonacci sequence gennerator passed test.
+7. ❌ Test: Fibonacci sequence gennerator didn't passed test.
+8. 📝 Chore: Updated .gitignore, added `.exe` .
+
+<a id="markdown-markdown-header-多行补充内容" name="markdown-header-多行补充内容"></a>
+## 多行补充内容
+在 [`格式`](#markdown-markdown-header-格式) 一节中, 简述了单行 message 的格式要求  
+本节简述一下多行 message 中的格式要求  
+一般而言, 仅要求 message 第一行要按照前一节版式进行, 对多行 message 后文的版式不做要求  
+所以仅在此提出几点建议: 
+
 
 <a id="markdown-markdown-header-分支简介" name="markdown-header-分支简介"></a>
 # 分支简介
+请参阅[`Git 工作区, 暂存区和版本库`](https://www.runoob.com/git/git-workspace-index-repo.html), 感谢菜鸟教程
 
 <a id="markdown-markdown-header-关于-pull-request" name="markdown-header-关于-pull-request"></a>
 # 关于 Pull Request
