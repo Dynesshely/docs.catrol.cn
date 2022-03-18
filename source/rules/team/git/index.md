@@ -154,13 +154,14 @@ Delete   ->  已删除     ->  一般是已追踪的但是被删除的文件, �
 其中: 
 * `<EMOJI>` 可选项, 表示一个表情符号, 与 `<TYPE>` 相对应, 使用它能够方便查找, 而且增加了趣味性
 * `<TYPE>` 表示提交类型, 可选项如下:
-    * 💾 `Feat`: 表示这次更改增加了新功能
+    * 💾 `Feat`: 表示这次更改增加了新功能或者削减了原有的功能
     * 🔧 `Fix`: 表示这次更改修复了一个 bug, 此类提交往往还携带 `Close #7.` 此类语句, 用于在 GitHub 上关闭一个 `issue`.
     * 📄 `Docs`: 表示这次更改修改了文档
     * 🎇 `Style`: 表示这次更改修改了代码风格, 但没有影响实质性的逻辑
     * 🧩 `Refactor`: 表示这次更改重构了代码
     * ✔️ `Test`: 表示这次更改测试了一个功能, 往往是单元测试, 同时在 `<SUBJECT>` 中也会包含测试的结果, 是否通过, 若未通过请将 `<EMOJI>` 更换为 ❌
     * 📝 `Chore`: 表示这次更改修改了构建文件, 一般是项目维护程序或者是 IDE 生成的文件, 例如: .sln, .gitignore, makefile 等等
+    * 📦 `Struct`: 表示这次更改调整了目录结构, 移动文件, 但不涉及到代码的改动
 * `<SCOPE>`: 可选项, 表示这次更改作用的范围, 可以是单个文件或者是文件夹的名称
 * `<SUBJECT>`: 主题消息, 用于大致描述更改的内容, 且与 `<TYPE>` 对应
 
@@ -173,6 +174,7 @@ Delete   ->  已删除     ->  一般是已追踪的但是被删除的文件, �
 6. ✔️ Test: Fibonacci sequence gennerator passed test.
 7. ❌ Test: Fibonacci sequence gennerator didn't passed test.
 8. 📝 Chore: Updated .gitignore, added `.exe` .
+9. 📦 Struct: Moved `Human` class to `Human` folder.
 
 <a id="markdown-markdown-header-多行补充内容" name="markdown-header-多行补充内容"></a>
 ## 多行补充内容
@@ -180,7 +182,7 @@ Delete   ->  已删除     ->  一般是已追踪的但是被删除的文件, �
 本节简述一下多行 message 中的格式要求  
 一般而言, 仅要求 message 第一行要按照前一节版式进行, 对多行 message 后文的版式不做要求  
 所以仅在此提出几点建议: 
-
+1. 对于涉及到的协作人员, 请 `@` TA, 同时请写完整 TA 的提交名称, 以便于 GitHub 能够正确给出指向链接
 
 <a id="markdown-markdown-header-分支简介" name="markdown-header-分支简介"></a>
 # 分支简介

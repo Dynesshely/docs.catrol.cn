@@ -1,0 +1,15 @@
+{
+    "name": "wdos",
+    "version": "1.0.0",
+    "description": "docs",
+    "main": "index.js",
+    "author": "Dynesshely",
+    "license": "AGPL",
+    "devDependencies": {
+        "vuepress": "^1.9.7"
+    },
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    }
+}
