@@ -1,5 +1,6 @@
 ---
 title: 欢迎 - Welcome
+top: true
 ---
 
 # 欢迎使用 常青园 `文档中心`
