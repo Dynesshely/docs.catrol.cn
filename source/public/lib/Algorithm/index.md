@@ -10,6 +10,8 @@ mathjax: true
 - [📜 目录](#markdown-header-📜-目录)
 - [🔰 Interop - 内部接口互操作库](#markdown-header-🔰-interop-内部接口互操作库)
     - [📒 结构](#markdown-header-📒-结构)
+    - [🌏 Environment.cs](#markdown-header-🌏-environmentcs)
+        - [💾 Functions](#markdown-header-💾-functions)
     - [📛 Hash.cs](#markdown-header-📛-hashcs)
         - [💾 公共方法/函数](#markdown-header-💾-公共方法函数)
         - [🔢 枚举值定义](#markdown-header-🔢-枚举值定义)
@@ -31,11 +33,28 @@ mathjax: true
 # 🔰 Interop - 内部接口互操作库
 <a id="markdown-markdown-header-📒-结构" name="markdown-header-📒-结构"></a>
 ## 📒 结构
+- [Environment.cs](#markdown-markdown-header-🌏-environmentcs) 环境类
 - [Hash.cs](#markdown-markdown-header-📛-hashcs) 哈希交互类
 - [~~Math.cs~~ Developing]() 数学交互类
 - [Exceptions](#markdown-markdown-header-💢-exceptions) 异常部分
   - [BasicException](#markdown-markdown-header-🧱-basicexception) 基础异常
     - [HashException](#markdown-markdown-header-📛-hashexception) 哈希异常
+
+<a id="markdown-markdown-header-🌏-environmentcs" name="markdown-header-🌏-environmentcs"></a>
+## 🌏 Environment.cs
+<a id="markdown-markdown-header-💾-functions" name="markdown-header-💾-functions"></a>
+### 💾 Functions
+| Name               | Args | Description                                                         |
+|--------------------|------|---------------------------------------------------------------------|
+| CheckEnvironment   |      | Make sure all environment and core file are installed, return bool. |
+| InstallEnvironment |      | Download all environment and core file to install to localhost.     |
+
+* `使用`:
+  1. 先 CheckEnvironment() , 如果为 false , 执行 `2`
+  2. 执行 InstallEnvironment() , 等待安装完毕
+* `安全性`:
+  常青园保证存储在云端的所有 dll 文件不会被常青园篡改, 也不会被常青园投毒
+  如果对安全性持有疑问, 建议在本地手动构建, 毕竟这是开源的算法库
 
 <a id="markdown-markdown-header-📛-hashcs" name="markdown-header-📛-hashcs"></a>
 ## 📛 Hash.cs
