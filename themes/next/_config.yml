@@ -164,6 +164,11 @@ menu:
       Delphi: /delphi ||
       Shell: /shell || fa fa-terminal
       SQL: /sql || fa fa-database
+  公共:
+    default: /public || fa fa-globe
+    公用库:
+      default: /lib || fa fa-book
+      Algorithm: /Algorithm || fa fa-magic
   旧版: /old/ || fa fa-wrench
   # home: / || fa fa-home
   #about: /about/ || fa fa-user
