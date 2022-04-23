@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>欢迎 - Welcome</title>
-    <url>/2022/welcome/</url>
-    <content><![CDATA[<h1 id="欢迎使用-常青园-文档中心"><a href="#欢迎使用-常青园-文档中心" class="headerlink" title="欢迎使用 常青园 文档中心"></a>欢迎使用 常青园 <code>文档中心</code></h1><p>感谢你成为一名常青园の开发者</p>
-<p>常青园的大家庭欢迎您的加入</p>
-]]></content>
-  </entry>
-  <entry>
     <title>旧版文档说明</title>
     <url>/2022/old-descr/</url>
     <content><![CDATA[<h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>首先感到很抱歉, 由于原先架构的问题, 旧版文档不再使用, 但是依旧可以查看</p>
 <p>点击页面左方导航栏 <code>旧版</code> 链接可以查看旧版文档, 但是常青园不再对旧版文档负责, 如果你有什么问题, 请联系常青园晚</p>
 <p>另外, 常青园不建议您继续使用旧版文档, 此致</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>欢迎 - Welcome</title>
+    <url>/2022/welcome/</url>
+    <content><![CDATA[<h1 id="欢迎使用-常青园-文档中心"><a href="#欢迎使用-常青园-文档中心" class="headerlink" title="欢迎使用 常青园 文档中心"></a>欢迎使用 常青园 <code>文档中心</code></h1><p>感谢你成为一名常青园の开发者</p>
+<p>常青园的大家庭欢迎您的加入</p>
 ]]></content>
   </entry>
   <entry>
@@ -345,11 +345,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>CSS3</title>
-    <url>/rules/style/css/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>C/C++ - 编码样式</title>
     <url>/rules/style/ccpp/index.html</url>
     <content><![CDATA[<h1 id="名家经验"><a href="#名家经验" class="headerlink" title="名家经验"></a>名家经验</h1><p>特别声明: 感谢 <a href="https://github.com/Ctkon"><code>@Ctkon</code></a> 提供的经验<br>总结提炼即是:</p>
@@ -400,13 +395,18 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Delphi</title>
-    <url>/rules/style/delphi/index.html</url>
+    <title>CSS3</title>
+    <url>/rules/style/css/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>GO</title>
     <url>/rules/style/go/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Delphi</title>
+    <url>/rules/style/delphi/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -420,13 +420,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Julia</title>
-    <url>/rules/style/julia/index.html</url>
+    <title>Kotlin</title>
+    <url>/rules/style/kotlin/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Kotlin</title>
-    <url>/rules/style/kotlin/index.html</url>
+    <title>Julia</title>
+    <url>/rules/style/julia/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -440,13 +440,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Ruby</title>
-    <url>/rules/style/ruby/index.html</url>
+    <title>Python</title>
+    <url>/rules/style/python/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Python</title>
-    <url>/rules/style/python/index.html</url>
+    <title>Ruby</title>
+    <url>/rules/style/ruby/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -460,6 +460,11 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>SQL</title>
+    <url>/rules/style/sql/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Shell</title>
     <url>/rules/style/shell/index.html</url>
     <content><![CDATA[]]></content>
@@ -470,11 +475,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>SQL</title>
-    <url>/rules/style/sql/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>TypeScript</title>
     <url>/rules/style/typescript/index.html</url>
     <content><![CDATA[]]></content>
@@ -482,6 +482,11 @@
   <entry>
     <title>Discord</title>
     <url>/rules/team/discord/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>GitHub</title>
+    <url>/rules/team/github/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -626,10 +631,5 @@
 <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p><a id="markdown-markdown-header-搭建私有-git-服务器" name="markdown-header-搭建私有-git-服务器"></a></p>
 <h1 id="搭建私有-Git-服务器"><a href="#搭建私有-Git-服务器" class="headerlink" title="搭建私有 Git 服务器"></a>搭建私有 Git 服务器</h1><p><a id="markdown-markdown-header-使用-git-的团队协作" name="markdown-header-使用-git-的团队协作"></a></p>
 <h1 id="使用-Git-的团队协作"><a href="#使用-Git-的团队协作" class="headerlink" title="使用 Git 的团队协作"></a>使用 Git 的团队协作</h1>]]></content>
-  </entry>
-  <entry>
-    <title>GitHub</title>
-    <url>/rules/team/github/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
