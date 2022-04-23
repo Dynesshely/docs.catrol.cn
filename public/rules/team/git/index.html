@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://source.catrol.cn/icons/Catrol-lvj.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://source.catrol.cn/icons/Catrol-lvj.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://source.catrol.cn/icons/Catrol-lvj.png">
+  <link rel="mask-icon" href="https://source.catrol.cn/icons/Catrol-lvj.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"docs.catrol.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="目录   目录 Git 简介 Git 初体验 Git 安装与卸载 (bushi) Windows Linux Debian Red Hat 使用源码进行安装 配置 用户信息 配置代理 查看配置信息         代码更改与文件追踪 提交消息规范 格式 多行补充内容   分支简介 关于 Pull Request 标签 搭建私有 Git 服务器 使用 Git 的团队协作     Git 简介 Gi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="使用 Git 的项目合作">
+<meta property="og:url" content="https://docs.catrol.cn/rules/team/git/index.html">
+<meta property="og:site_name" content="常青园文档中心">
+<meta property="og:description" content="目录   目录 Git 简介 Git 初体验 Git 安装与卸载 (bushi) Windows Linux Debian Red Hat 使用源码进行安装 配置 用户信息 配置代理 查看配置信息         代码更改与文件追踪 提交消息规范 格式 多行补充内容   分支简介 关于 Pull Request 标签 搭建私有 Git 服务器 使用 Git 的团队协作     Git 简介 Gi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-23T10:06:53.737Z">
+<meta property="article:modified_time" content="2022-03-17T05:37:27.000Z">
+<meta property="article:author" content="常青园">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://docs.catrol.cn/rules/team/git/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用 Git 的项目合作 | 常青园文档中心
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">常青园文档中心</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">docs center</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        
+            
+  <li class="menu-item menu-item-规范">
+
+    <a href="/rules/" rel="section"><i class="fa fa-flag fa-fw"></i>规范</a>
+
+  </li>
+
+
+      
+        
+            
+  <li class="menu-item menu-item-公共">
+
+    <a href="/public" rel="section"><i class="fa fa-globe fa-fw"></i>公共</a>
+
+  </li>
+
+
+      
+        <li class="menu-item menu-item-旧版">
+
+    <a href="/old/" rel="section"><i class="fa fa-wrench fa-fw"></i>旧版</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Catrol-org" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+
+      
+
+        
+        <ul id="sub-menu" class="sub-menu menu">
+          
+            
+          
+          
+            
+                
+  <li class="menu-item menu-item-团队协作">
+
+    <a href="/rules/team" rel="section"><i class="fa fa-users fa-fw"></i>团队协作</a>
+
+  </li>
+
+
+          
+            
+                
+  <li class="menu-item menu-item-编码样式">
+
+    <a href="/rules/style" rel="section"><i class="fa fa-code fa-fw"></i>编码样式</a>
+
+  </li>
+
+
+        </ul>
+        
+
+        
+
+                
+
+                    
+                    <ul id="sub-menu-2" class="sub-menu menu">
+                      
+                        
+  <li class="menu-item menu-item--git">
+
+    <a href="/rules/team/git" rel="section"><i class="fa-brands fa-git-alt fa-fw"></i> Git</a>
+
+  </li>
+
+
+                        
+  <li class="menu-item menu-item--github">
+
+    <a href="/rules/team/github" rel="section"><i class="fa-brands fa-github fa-fw"></i> GitHub</a>
+
+  </li>
+
+
+                        
+  <li class="menu-item menu-item--discord">
+
+    <a href="/rules/team/discord" rel="section"><i class="fa-brands fa-discord fa-fw"></i> Discord</a>
+
+  </li>
+
+
+                    </ul>
+                    
+                
+
+                
+                
+
+                
+                
+        
+      
+
+      
+      
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">使用 Git 的项目合作
+</h1>
+
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/rules/">RULES</a></li>
+            <li><a href="/rules/team/">TEAM</a></li>
+          <li>GIT</li>
+        
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p><a id="markdown-markdown-header-目录" name="markdown-header-目录"></a></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- TOC -->
+
+<ul>
+<li><a href="#markdown-header-%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#markdown-header-git-%E7%AE%80%E4%BB%8B">Git 简介</a></li>
+<li><a href="#markdown-header-git-%E5%88%9D%E4%BD%93%E9%AA%8C">Git 初体验</a><ul>
+<li><a href="#markdown-header-git-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD-bushi">Git 安装与卸载 (bushi)</a><ul>
+<li><a href="#markdown-header-windows">Windows</a></li>
+<li><a href="#markdown-header-linux">Linux</a><ul>
+<li><a href="#markdown-header-debian">Debian</a></li>
+<li><a href="#markdown-header-red-hat">Red Hat</a></li>
+<li><a href="#markdown-header-%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85">使用源码进行安装</a></li>
+<li><a href="#markdown-header-%E9%85%8D%E7%BD%AE">配置</a><ul>
+<li><a href="#markdown-header-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">用户信息</a></li>
+<li><a href="#markdown-header-%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86">配置代理</a></li>
+<li><a href="#markdown-header-%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF">查看配置信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#markdown-header-%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%94%B9%E4%B8%8E%E6%96%87%E4%BB%B6%E8%BF%BD%E8%B8%AA">代码更改与文件追踪</a></li>
+<li><a href="#markdown-header-%E6%8F%90%E4%BA%A4%E6%B6%88%E6%81%AF%E8%A7%84%E8%8C%83">提交消息规范</a><ul>
+<li><a href="#markdown-header-%E6%A0%BC%E5%BC%8F">格式</a></li>
+<li><a href="#markdown-header-%E5%A4%9A%E8%A1%8C%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9">多行补充内容</a></li>
+</ul>
+</li>
+<li><a href="#markdown-header-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B">分支简介</a></li>
+<li><a href="#markdown-header-%E5%85%B3%E4%BA%8E-pull-request">关于 Pull Request</a></li>
+<li><a href="#markdown-header-%E6%A0%87%E7%AD%BE">标签</a></li>
+<li><a href="#markdown-header-%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-git-%E6%9C%8D%E5%8A%A1%E5%99%A8">搭建私有 Git 服务器</a></li>
+<li><a href="#markdown-header-%E4%BD%BF%E7%94%A8-git-%E7%9A%84%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C">使用 Git 的团队协作</a></li>
+</ul>
+<!-- /TOC -->
+
+<p><a id="markdown-markdown-header-git-简介" name="markdown-header-git-简介"></a></p>
+<h1 id="Git-简介"><a href="#Git-简介" class="headerlink" title="Git 简介"></a>Git 简介</h1><blockquote>
+<p>Git 是一个开源的分布式版本控制系统, 用于敏捷高效地处理任何或小或大的项目.<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件.<br>Git 与常用的版本控制工具 CVS, Subversion 等不同, 它采用了分布式版本库的方式, 不必服务器端软件支持.  </p>
+</blockquote>
+<p>以上简介来自<a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">菜鸟教程</a></p>
+<p><a id="markdown-markdown-header-git-初体验" name="markdown-header-git-初体验"></a></p>
+<h1 id="Git-初体验"><a href="#Git-初体验" class="headerlink" title="Git 初体验"></a>Git 初体验</h1><p><a id="markdown-markdown-header-git-安装与卸载-bushi" name="markdown-header-git-安装与卸载-bushi"></a></p>
+<h2 id="Git-安装与卸载-bushi"><a href="#Git-安装与卸载-bushi" class="headerlink" title="Git 安装与卸载 (bushi)"></a>Git 安装与卸载 (bushi)</h2><p><a id="markdown-markdown-header-windows" name="markdown-header-windows"></a></p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>前往 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git 官网</a> 下载最新版本的 Git 安装包<br>执行该安装包, 一路默认即可 (有能力的可以修改一些配置)<br>执行完毕之后检查是否安装成功:</p>
+<ol>
+<li>打开 PowerShell 窗口</li>
+<li>输入 git 并回车执行</li>
+<li>检查输出, 如果输出正常, 则表示安装成功</li>
+</ol>
+<p><a id="markdown-markdown-header-linux" name="markdown-header-linux"></a></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p><a id="markdown-markdown-header-debian" name="markdown-header-debian"></a></p>
+<h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><blockquote>
+<p>此分类特指 Debian 系 Linux, 如: [Ubuntu, Mint, Elementary, Zorin, …]</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade <span class="comment"># 此行是可选的</span></span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<p>若安装失败, 尝试安装以下库之后再试:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev</span><br></pre></td></tr></table></figure>
+
+<p><a id="markdown-markdown-header-red-hat" name="markdown-header-red-hat"></a></p>
+<h4 id="Red-Hat"><a href="#Red-Hat" class="headerlink" title="Red Hat"></a>Red Hat</h4><blockquote>
+<p>此分类特指 Red Hat 系 Linux, 如: [CentOS, Fedora, RHEL, …]</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum upgrade <span class="comment"># 此行是可选的</span></span><br><span class="line">sudo yum -y install git-core</span><br></pre></td></tr></table></figure>
+<p>若安装失败, 尝试安装以下库之后再试:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+
+<p><a id="markdown-markdown-header-使用源码进行安装" name="markdown-header-使用源码进行安装"></a></p>
+<h4 id="使用源码进行安装"><a href="#使用源码进行安装" class="headerlink" title="使用源码进行安装"></a>使用源码进行安装</h4><p>前往 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git 官网</a> 下载最新版本的 Git 的源码包<br>依照前两小节, 安装指定系统的依赖包, 并解压源码包<br>参照以下指令安装  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf git-1.7.2.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> git-1.7.2.2</span><br><span class="line">make prefix=/usr/local all</span><br><span class="line">sudo make prefix=/usr/local install</span><br></pre></td></tr></table></figure>
+
+<p><a id="markdown-markdown-header-配置" name="markdown-header-配置"></a></p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p><a id="markdown-markdown-header-用户信息" name="markdown-header-用户信息"></a></p>
+<h5 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h5><p>配置个人的用户名称与电子邮件地址</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;&lt;用户名&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;电子邮件地址&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>请将 <code>&lt;用户名&gt;</code> 和 <code>&lt;电子邮件地址&gt;</code> 替换为你的用户名称和电子邮件地址<br>同时要求该电子邮件地址尽可能与 GitHub 绑定的电子邮件地址一致(如果你使用 GitHub 来团队协作的话)  </p>
+<hr>
+<p><a id="markdown-markdown-header-配置代理" name="markdown-header-配置代理"></a></p>
+<h5 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h5><p>因为一些众所周知的原因, 大陆访问 GitHub 的速度可以以亿万分之一个光速来计量<br>因此, 我们往往会使用一些魔法来让 Git 可以访问 GitHub  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&quot;http://&lt;代理服务器地址&gt;:&lt;代理服务器端口&gt;&quot;</span></span><br><span class="line">git config --global https.proxy <span class="string">&quot;https://&lt;代理服务器地址&gt;:&lt;代理服务器端口&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>请将 <code>&lt;代理服务器地址&gt;</code> 和 <code>&lt;代理服务器端口&gt;</code> 替换为你的代理服务器地址和端口</p>
+<hr>
+<p><a id="markdown-markdown-header-查看配置信息" name="markdown-header-查看配置信息"></a></p>
+<h5 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h5><p>要检查已有的配置信息, 可以使用 <code>git config --list</code> 命令<br>有时候会看到重复的变量名, 那就说明它们来自不同的配置文件（比如 &#x2F;etc&#x2F;gitconfig 和 ~&#x2F;.gitconfig）, 不过最终 Git 实际采用的是最后一个.<br>这些配置我们也可以在 ~&#x2F;.gitconfig 或 &#x2F;etc&#x2F;gitconfig 看到.  </p>
+<p><a id="markdown-markdown-header-代码更改与文件追踪" name="markdown-header-代码更改与文件追踪"></a></p>
+<h1 id="代码更改与文件追踪"><a href="#代码更改与文件追踪" class="headerlink" title="代码更改与文件追踪"></a>代码更改与文件追踪</h1><p>对于 Git 而言, 仓库下的文件有四种状态</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Untrack  -&gt;  未追踪     -&gt;  一般是新创建的文件, 需要通过 `git add` 来追踪</span><br><span class="line">Modified -&gt;  修改过的   -&gt;  需要通过 `git commit` 来提交更改</span><br><span class="line">Normal   -&gt;  正常       -&gt;  需要通过 `git commit` 来提交更改</span><br><span class="line">Delete   -&gt;  已删除     -&gt;  一般是已追踪的但是被删除的文件, 需要通过 `git commit` 来提交更改</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过 <code>git add</code> 添加的文件, Git 会追踪器更改, 一旦发生更改, Git 会将其标记为 <code>Modified</code> 状态  </li>
+<li>通过 <code>git rm</code> 移除的文件, Git 不再追踪其更改, 但是仍然会保留其历史记录  </li>
+<li>通过 <code>git commit</code> 提交的文件, Git 会将其标记为 <code>Normal</code> 状态, 并且从暂存区或者工作区直接加入版本库</li>
+</ul>
+<p><a id="markdown-markdown-header-提交消息规范" name="markdown-header-提交消息规范"></a></p>
+<h1 id="提交消息规范"><a href="#提交消息规范" class="headerlink" title="提交消息规范"></a>提交消息规范</h1><p>在 Git 的使用中, 我们会使用 <code>git commit</code> 来提交我们的更改<br>这个命令可以使用 <code>-m &quot;&lt;消息&gt;&quot;</code> 参数指定提交消息<br>这个消息会被记录在提交记录中, 同时也会被显示在 GitHub 中<br>那么这个消息的格式便显得极为重要, 因为这能让协作者更好的理解你的更改<br>同时方便日后查错以及紧急回滚<br>以下是常青园使用的消息规范:<br><a id="markdown-markdown-header-格式" name="markdown-header-格式"></a></p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;EMOJI&gt; &lt;TYPE&gt;(&lt;SCOPE&gt;): &lt;SUBJECT&gt;</span><br></pre></td></tr></table></figure>
+<p>其中: </p>
+<ul>
+<li><code>&lt;EMOJI&gt;</code> 可选项, 表示一个表情符号, 与 <code>&lt;TYPE&gt;</code> 相对应, 使用它能够方便查找, 而且增加了趣味性</li>
+<li><code>&lt;TYPE&gt;</code> 表示提交类型, 可选项如下:<ul>
+<li>💾 <code>Feat</code>: 表示这次更改增加了新功能或者削减了原有的功能</li>
+<li>🔧 <code>Fix</code>: 表示这次更改修复了一个 bug, 此类提交往往还携带 <code>Close #7.</code> 此类语句, 用于在 GitHub 上关闭一个 <code>issue</code>.</li>
+<li>📄 <code>Docs</code>: 表示这次更改修改了文档</li>
+<li>🎇 <code>Style</code>: 表示这次更改修改了代码风格, 但没有影响实质性的逻辑</li>
+<li>🧩 <code>Refactor</code>: 表示这次更改重构了代码</li>
+<li>✔️ <code>Test</code>: 表示这次更改测试了一个功能, 往往是单元测试, 同时在 <code>&lt;SUBJECT&gt;</code> 中也会包含测试的结果, 是否通过, 若未通过请将 <code>&lt;EMOJI&gt;</code> 更换为 ❌</li>
+<li>📝 <code>Chore</code>: 表示这次更改修改了构建文件, 一般是项目维护程序或者是 IDE 生成的文件, 例如: .sln, .gitignore, makefile 等等</li>
+<li>📦 <code>Struct</code>: 表示这次更改调整了目录结构, 移动文件, 但不涉及到代码的改动</li>
+</ul>
+</li>
+<li><code>&lt;SCOPE&gt;</code>: 可选项, 表示这次更改作用的范围, 可以是单个文件或者是文件夹的名称</li>
+<li><code>&lt;SUBJECT&gt;</code>: 主题消息, 用于大致描述更改的内容, 且与 <code>&lt;TYPE&gt;</code> 对应</li>
+</ul>
+<p>以下是几个 message 样例:  </p>
+<ol>
+<li>💾 Feat(MainWindow.xaml.cs): Added a new view for user login.</li>
+<li>🔧 Fix: Error on no clients was soluted. Close #14.</li>
+<li>📄 Docs(README): New items added.</li>
+<li>🎇 Style(All): Move ‘{‘ after function to new line.</li>
+<li>🧩 Refactor: All <code>Student</code> class was created from <code>Human</code>.</li>
+<li>✔️ Test: Fibonacci sequence gennerator passed test.</li>
+<li>❌ Test: Fibonacci sequence gennerator didn’t passed test.</li>
+<li>📝 Chore: Updated .gitignore, added <code>.exe</code> .</li>
+<li>📦 Struct: Moved <code>Human</code> class to <code>Human</code> folder.</li>
+</ol>
+<p><a id="markdown-markdown-header-多行补充内容" name="markdown-header-多行补充内容"></a></p>
+<h2 id="多行补充内容"><a href="#多行补充内容" class="headerlink" title="多行补充内容"></a>多行补充内容</h2><p>在 <a href="#markdown-markdown-header-%E6%A0%BC%E5%BC%8F"><code>格式</code></a> 一节中, 简述了单行 message 的格式要求<br>本节简述一下多行 message 中的格式要求<br>一般而言, 仅要求 message 第一行要按照前一节版式进行, 对多行 message 后文的版式不做要求<br>所以仅在此提出几点建议: </p>
+<ol>
+<li>对于涉及到的协作人员, 请 <code>@</code> TA, 同时请写完整 TA 的提交名称, 以便于 GitHub 能够正确给出指向链接</li>
+</ol>
+<p><a id="markdown-markdown-header-分支简介" name="markdown-header-分支简介"></a></p>
+<h1 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h1><p>请参阅<a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-workspace-index-repo.html"><code>Git 工作区, 暂存区和版本库</code></a>, 感谢菜鸟教程</p>
+<p><a id="markdown-markdown-header-关于-pull-request" name="markdown-header-关于-pull-request"></a></p>
+<h1 id="关于-Pull-Request"><a href="#关于-Pull-Request" class="headerlink" title="关于 Pull Request"></a>关于 Pull Request</h1><p><a id="markdown-markdown-header-标签" name="markdown-header-标签"></a></p>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p><a id="markdown-markdown-header-搭建私有-git-服务器" name="markdown-header-搭建私有-git-服务器"></a></p>
+<h1 id="搭建私有-Git-服务器"><a href="#搭建私有-Git-服务器" class="headerlink" title="搭建私有 Git 服务器"></a>搭建私有 Git 服务器</h1><p><a id="markdown-markdown-header-使用-git-的团队协作" name="markdown-header-使用-git-的团队协作"></a></p>
+<h1 id="使用-Git-的团队协作"><a href="#使用-Git-的团队协作" class="headerlink" title="使用 Git 的团队协作"></a>使用 Git 的团队协作</h1>
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/rules/">RULES</a></li>
+            <li><a href="/rules/team/">TEAM</a></li>
+          <li>GIT</li>
+        
+  </ul>
+
+    
+    
+    
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">Git 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">Git 初体验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD-bushi"><span class="nav-number">3.1.</span> <span class="nav-text">Git 安装与卸载 (bushi)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-number">3.1.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">3.1.2.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debian"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">Debian</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Red-Hat"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">Red Hat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">使用源码进行安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.2.4.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">3.1.2.4.1.</span> <span class="nav-text">用户信息</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="nav-number">3.1.2.4.2.</span> <span class="nav-text">配置代理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">3.1.2.4.3.</span> <span class="nav-text">查看配置信息</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%94%B9%E4%B8%8E%E6%96%87%E4%BB%B6%E8%BF%BD%E8%B8%AA"><span class="nav-number">4.</span> <span class="nav-text">代码更改与文件追踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%B6%88%E6%81%AF%E8%A7%84%E8%8C%83"><span class="nav-number">5.</span> <span class="nav-text">提交消息规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.1.</span> <span class="nav-text">格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9"><span class="nav-number">5.2.</span> <span class="nav-text">多行补充内容</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B"><span class="nav-number">6.</span> <span class="nav-text">分支简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-Pull-Request"><span class="nav-number">7.</span> <span class="nav-text">关于 Pull Request</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-Git-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">搭建私有 Git 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Git-%E7%9A%84%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="nav-number">10.</span> <span class="nav-text">使用 Git 的团队协作</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="常青园"
+      src="https://source.catrol.cn/icons/Catrol-Animation-Flow-Cloud.gif">
+  <p class="site-author-name" itemprop="name">常青园</p>
+  <div class="site-description" itemprop="description">常青园文档中心</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Catrol-org" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Catrol-org" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dynesshely@gmail.com" title="E-Mail → mailto:dynesshely@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">黔 ICP 备案号 ：2021001447 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">常青园</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
