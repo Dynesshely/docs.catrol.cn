@@ -345,6 +345,27 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>CSS3</title>
+    <url>/rules/style/css/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>C/C++ - 编码样式</title>
+    <url>/rules/style/ccpp/index.html</url>
+    <content><![CDATA[<h1 id="名家经验"><a href="#名家经验" class="headerlink" title="名家经验"></a>名家经验</h1><p>特别声明: 感谢 <a href="https://github.com/Ctkon"><code>@Ctkon</code></a> 提供的经验<br>总结提炼即是:</p>
+<ol>
+<li>#define 少使用宏定义, 定义常量时, 可以使用 const 关键字, 并且不适用 #define 定义关键词或者符号</li>
+<li>多次使用的常量一定要使用 const 关键字</li>
+<li>即使是 void 类型的函数也请使用 return 语句</li>
+<li>压缩代码行数不是一个好主意, 这并不能显示水平的高低, 建议使用注释来提示代码的结构</li>
+<li>在 OI 竞赛中, 命名请使用熟知的缩写, 在工程中要遵循命名规范</li>
+<li>循环语句中, 如果只有一条语句, 则可以不适用 {} , 并在一行内完成</li>
+</ol>
+<p>以下是原文:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> e 2.78</span></span><br><span class="line"><span class="comment">//define 的内容必须为公认的常量 拒绝&quot;define int long long&quot;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">7</span>;</span><br><span class="line"><span class="comment">//自己会多次用到的常量一定要const</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//大括号请打在括号后面 </span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line"><span class="comment">//即使是void也请打上return </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请一定要有init()函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;-x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即使只有一行的函数也请换行出来</span></span><br><span class="line"><span class="type">int</span> trie_idx;</span><br><span class="line"><span class="comment">//多个单词请使用下划线连接</span></span><br><span class="line"><span class="comment">//一些缩写请使用大家公知的缩写</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> rp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)rp++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,rp); </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环内容只有一行可以合并单行，但是多行不行 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            rp++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环套循环请不要使用缩进代替括号 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>C# - 编码样式</title>
     <url>/rules/style/csharp/index.html</url>
     <content><![CDATA[<p>本篇文章是建议性的, 不是必须的.<br>当然, 对其进行采纳也是极好的.</p>
@@ -379,39 +400,18 @@
 ]]></content>
   </entry>
   <entry>
-    <title>C/C++ - 编码样式</title>
-    <url>/rules/style/ccpp/index.html</url>
-    <content><![CDATA[<h1 id="名家经验"><a href="#名家经验" class="headerlink" title="名家经验"></a>名家经验</h1><p>特别声明: 感谢 <a href="https://github.com/Ctkon"><code>@Ctkon</code></a> 提供的经验<br>总结提炼即是:</p>
-<ol>
-<li>#define 少使用宏定义, 定义常量时, 可以使用 const 关键字, 并且不适用 #define 定义关键词或者符号</li>
-<li>多次使用的常量一定要使用 const 关键字</li>
-<li>即使是 void 类型的函数也请使用 return 语句</li>
-<li>压缩代码行数不是一个好主意, 这并不能显示水平的高低, 建议使用注释来提示代码的结构</li>
-<li>在 OI 竞赛中, 命名请使用熟知的缩写, 在工程中要遵循命名规范</li>
-<li>循环语句中, 如果只有一条语句, 则可以不适用 {} , 并在一行内完成</li>
-</ol>
-<p>以下是原文:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> e 2.78</span></span><br><span class="line"><span class="comment">//define 的内容必须为公认的常量 拒绝&quot;define int long long&quot;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">7</span>;</span><br><span class="line"><span class="comment">//自己会多次用到的常量一定要const</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//大括号请打在括号后面 </span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line"><span class="comment">//即使是void也请打上return </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请一定要有init()函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;-x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即使只有一行的函数也请换行出来</span></span><br><span class="line"><span class="type">int</span> trie_idx;</span><br><span class="line"><span class="comment">//多个单词请使用下划线连接</span></span><br><span class="line"><span class="comment">//一些缩写请使用大家公知的缩写</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> rp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)rp++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,rp); </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环内容只有一行可以合并单行，但是多行不行 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            rp++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环套循环请不要使用缩进代替括号 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Delphi</title>
     <url>/rules/style/delphi/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>CSS3</title>
-    <url>/rules/style/css/index.html</url>
+    <title>GO</title>
+    <url>/rules/style/go/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Java</title>
     <url>/rules/style/java/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>GO</title>
-    <url>/rules/style/go/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -425,11 +425,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Lua</title>
-    <url>/rules/style/lua/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Kotlin</title>
     <url>/rules/style/kotlin/index.html</url>
     <content><![CDATA[]]></content>
@@ -440,13 +435,23 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Python</title>
-    <url>/rules/style/python/index.html</url>
+    <title>Lua</title>
+    <url>/rules/style/lua/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Ruby</title>
     <url>/rules/style/ruby/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Python</title>
+    <url>/rules/style/python/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Rust</title>
+    <url>/rules/style/rust/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -460,23 +465,18 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>Swift</title>
+    <url>/rules/style/swift/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>SQL</title>
     <url>/rules/style/sql/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Rust</title>
-    <url>/rules/style/rust/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>TypeScript</title>
     <url>/rules/style/typescript/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Swift</title>
-    <url>/rules/style/swift/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
