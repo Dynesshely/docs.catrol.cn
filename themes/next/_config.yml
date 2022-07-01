@@ -164,8 +164,17 @@ menu:
       Delphi: /delphi ||
       Shell: /shell || fa fa-terminal
       SQL: /sql || fa fa-database
+  应用:
+    default: /apps/ || fa fa-cube
+    KitX:
+      default: /kitx ||
+      '第三方控制面板开发': /dashboard ||
+      'C/C++ 插件开发': /ccpp ||
+      'C# 插件开发': /cs || fa-brands fa-microsoft
+      'Python 插件开发': /python || fa-brands fa-python
+      'Java 插件开发': /java || fa-brands fa-java
   公共:
-    default: /public || fa fa-globe
+    default: /public/ || fa fa-globe
     公用库:
       default: /lib || fa fa-book
       Algorithm: /Algorithm || fa fa-magic
