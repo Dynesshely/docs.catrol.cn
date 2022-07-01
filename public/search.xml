@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>欢迎 - Welcome</title>
+    <url>/2022/welcome/</url>
+    <content><![CDATA[<h1 id="欢迎使用-常青园-文档中心"><a href="#欢迎使用-常青园-文档中心" class="headerlink" title="欢迎使用 常青园 文档中心"></a>欢迎使用 常青园 <code>文档中心</code></h1><p>感谢你成为一名常青园の开发者</p>
+<p>常青园的大家庭欢迎您的加入</p>
+]]></content>
+  </entry>
+  <entry>
     <title>旧版文档说明</title>
     <url>/2022/old-descr/</url>
     <content><![CDATA[<h1 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h1><p>首先感到很抱歉, 由于原先架构的问题, 旧版文档不再使用, 但是依旧可以查看</p>
@@ -9,15 +16,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>欢迎 - Welcome</title>
-    <url>/2022/welcome/</url>
-    <content><![CDATA[<h1 id="欢迎使用-常青园-文档中心"><a href="#欢迎使用-常青园-文档中心" class="headerlink" title="欢迎使用 常青园 文档中心"></a>欢迎使用 常青园 <code>文档中心</code></h1><p>感谢你成为一名常青园の开发者</p>
-<p>常青园的大家庭欢迎您的加入</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>公共 - 向导</title>
-    <url>/public/index.html</url>
+    <title>应用文档</title>
+    <url>/apps/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -28,6 +28,16 @@
 </blockquote>
 <p>本章节主要分享一些行业中建议且常青园一直在使用的规范.</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>KitX 开发文档</title>
+    <url>/apps/kitx/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>公共 - 向导</title>
+    <url>/public/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>公用库</title>
@@ -66,6 +76,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/apps/kitx/ccpp/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>团队协作</title>
     <url>/rules/team/index.html</url>
     <content><![CDATA[<p>无论在哪里, 团队协作是必不可少的, 随着信息化的加速, 通过计算机, 互联网等方式, 可以让团队协作更加简单, 并且更加高效.<br>对于在线项目开发而言, 团队协作更是必不可少的, 无论何种方式, 都可以让项目更加简单, 并且更加高效.<br>本章节旨在提供一些规范, 帮助大家认识, 并且提高自己的团队协作能力.</p>
@@ -78,6 +93,26 @@
 </ol>
 <hr>
 ]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/apps/kitx/java/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/apps/kitx/dashboard/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/apps/kitx/python/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Assembly - 汇编</title>
+    <url>/rules/style/assembly/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Algorithm - 通用算法库</title>
@@ -340,8 +375,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Assembly - 汇编</title>
-    <url>/rules/style/assembly/index.html</url>
+    <title></title>
+    <url>/apps/kitx/cs/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>CSS3</title>
+    <url>/rules/style/css/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -359,6 +399,11 @@
 <p>以下是原文:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> e 2.78</span></span><br><span class="line"><span class="comment">//define 的内容必须为公认的常量 拒绝&quot;define int long long&quot;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">7</span>;</span><br><span class="line"><span class="comment">//自己会多次用到的常量一定要const</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//大括号请打在括号后面 </span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line"><span class="comment">//即使是void也请打上return </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请一定要有init()函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;-x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即使只有一行的函数也请换行出来</span></span><br><span class="line"><span class="type">int</span> trie_idx;</span><br><span class="line"><span class="comment">//多个单词请使用下划线连接</span></span><br><span class="line"><span class="comment">//一些缩写请使用大家公知的缩写</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> rp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)rp++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,rp); </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环内容只有一行可以合并单行，但是多行不行 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            rp++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环套循环请不要使用缩进代替括号 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Delphi</title>
+    <url>/rules/style/delphi/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>C# - 编码样式</title>
@@ -395,8 +440,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>CSS3</title>
-    <url>/rules/style/css/index.html</url>
+    <title>JavaScript</title>
+    <url>/rules/style/javascript/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -405,8 +450,8 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Delphi</title>
-    <url>/rules/style/delphi/index.html</url>
+    <title>Julia</title>
+    <url>/rules/style/julia/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -415,8 +460,8 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>JavaScript</title>
-    <url>/rules/style/javascript/index.html</url>
+    <title>Ruby</title>
+    <url>/rules/style/ruby/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -425,28 +470,8 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Julia</title>
-    <url>/rules/style/julia/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>PHP</title>
-    <url>/rules/style/php/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Lua</title>
     <url>/rules/style/lua/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Python</title>
-    <url>/rules/style/python/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Ruby</title>
-    <url>/rules/style/ruby/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -460,13 +485,18 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>SQL</title>
-    <url>/rules/style/sql/index.html</url>
+    <title>PHP</title>
+    <url>/rules/style/php/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Shell</title>
     <url>/rules/style/shell/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>SQL</title>
+    <url>/rules/style/sql/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -480,13 +510,13 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Discord</title>
-    <url>/rules/team/discord/index.html</url>
+    <title>Python</title>
+    <url>/rules/style/python/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>GitHub</title>
-    <url>/rules/team/github/index.html</url>
+    <title>Discord</title>
+    <url>/rules/team/discord/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -631,5 +661,10 @@
 <h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p><a id="markdown-markdown-header-搭建私有-git-服务器" name="markdown-header-搭建私有-git-服务器"></a></p>
 <h1 id="搭建私有-Git-服务器"><a href="#搭建私有-Git-服务器" class="headerlink" title="搭建私有 Git 服务器"></a>搭建私有 Git 服务器</h1><p><a id="markdown-markdown-header-使用-git-的团队协作" name="markdown-header-使用-git-的团队协作"></a></p>
 <h1 id="使用-Git-的团队协作"><a href="#使用-Git-的团队协作" class="headerlink" title="使用 Git 的团队协作"></a>使用 Git 的团队协作</h1>]]></content>
+  </entry>
+  <entry>
+    <title>GitHub</title>
+    <url>/rules/team/github/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

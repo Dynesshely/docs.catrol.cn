@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://docs.catrol.cn/apps/kitx/dashboard/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.catrol.cn/apps/kitx/ccpp/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.catrol.cn/apps/kitx/cs/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.catrol.cn/apps/kitx/java/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.catrol.cn/apps/kitx/python/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.catrol.cn/apps/kitx/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.catrol.cn/apps/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.catrol.cn/public/lib/Algorithm/index.html</loc>
     
     <lastmod>2022-04-05</lastmod>
@@ -283,7 +346,7 @@
 
   <url>
     <loc>https://docs.catrol.cn/</loc>
-    <lastmod>2022-04-23</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
