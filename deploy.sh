@@ -8,7 +8,7 @@ cp -r old public/
 git add public/*
 
 git commit -m "📦 Struct: Push to Server"
-git push server -- force
+git push server --force
 
 git rm -r public
 
