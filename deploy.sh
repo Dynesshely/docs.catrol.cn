@@ -1,16 +1,19 @@
 #!/bin/bash
+
 hexo clean
 hexo g
+
 cp -r old public/
 
-sleep 1
+git add public/*
 
-git add .
-git commit -m "📦 Struct: Hexo Generate."
+git commit -m "📦 Struct: Push to Server"
+git push server -- force
 
-sleep 1
+git rm -r public
 
-git push origin
-git push server
+git commit -m "📦 Struct: Cleaned Public"
+git push origin --force
+git push home-server --force
 
-sleep 1
+sleep 3
