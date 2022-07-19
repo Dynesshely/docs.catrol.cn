@@ -30,18 +30,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>KitX 开发文档</title>
-    <url>/apps/kitx/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>公共 - 向导</title>
     <url>/public/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>公用库</title>
-    <url>/public/lib/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -76,8 +66,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/apps/kitx/ccpp/index.html</url>
+    <title>KitX 开发文档</title>
+    <url>/apps/kitx/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -95,8 +85,153 @@
 ]]></content>
   </entry>
   <entry>
+    <title>公用库</title>
+    <url>/public/lib/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Assembly - 汇编</title>
+    <url>/rules/style/assembly/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>C/C++ - 编码样式</title>
+    <url>/rules/style/ccpp/index.html</url>
+    <content><![CDATA[<h1 id="名家经验"><a href="#名家经验" class="headerlink" title="名家经验"></a>名家经验</h1><p>特别声明: 感谢 <a href="https://github.com/Ctkon"><code>@Ctkon</code></a> 提供的经验<br>总结提炼即是:</p>
+<ol>
+<li>#define 少使用宏定义, 定义常量时, 可以使用 const 关键字, 并且不适用 #define 定义关键词或者符号</li>
+<li>多次使用的常量一定要使用 const 关键字</li>
+<li>即使是 void 类型的函数也请使用 return 语句</li>
+<li>压缩代码行数不是一个好主意, 这并不能显示水平的高低, 建议使用注释来提示代码的结构</li>
+<li>在 OI 竞赛中, 命名请使用熟知的缩写, 在工程中要遵循命名规范</li>
+<li>循环语句中, 如果只有一条语句, 则可以不适用 {} , 并在一行内完成</li>
+</ol>
+<p>以下是原文:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> e 2.78</span></span><br><span class="line"><span class="comment">//define 的内容必须为公认的常量 拒绝&quot;define int long long&quot;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">7</span>;</span><br><span class="line"><span class="comment">//自己会多次用到的常量一定要const</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//大括号请打在括号后面 </span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line"><span class="comment">//即使是void也请打上return </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请一定要有init()函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;-x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即使只有一行的函数也请换行出来</span></span><br><span class="line"><span class="type">int</span> trie_idx;</span><br><span class="line"><span class="comment">//多个单词请使用下划线连接</span></span><br><span class="line"><span class="comment">//一些缩写请使用大家公知的缩写</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> rp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)rp++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,rp); </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环内容只有一行可以合并单行，但是多行不行 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            rp++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环套循环请不要使用缩进代替括号 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>C# - 编码样式</title>
+    <url>/rules/style/csharp/index.html</url>
+    <content><![CDATA[<p>本篇文章是建议性的, 不是必须的.<br>当然, 对其进行采纳也是极好的.</p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><blockquote>
+<p>命名规范是一个非常重要的规范, 因为它决定了你的代码的可读性.<br>此处命名范围包括: 变量&#x2F;常量, 字段, 属性, 函数, 函数参数名, 类, 接口, 枚举, 包, 命名空间.</p>
+</blockquote>
+<h2 id="大驼峰命名法"><a href="#大驼峰命名法" class="headerlink" title="大驼峰命名法"></a>大驼峰命名法</h2><blockquote>
+<p>建议的命名范围: 字段, 属性, 函数, 类, 接口, 枚举, 包, 命名空间<br>之所以采用大驼峰命名法, 主要是因为 DotNet 基础库中全面使用此规范.<br>尽管特立独行使用小驼峰命名法, 但是这是不被迎合的.<br>保持一致能够使得代码更加可读, 并且更加易于维护.</p>
+</blockquote>
+<hr>
+<p>大驼峰命名法指的是 ☞</p>
+<ol>
+<li><code>像驼峰一般起伏</code></li>
+<li><code>具有实义的英文单词首字母大写</code></li>
+<li><code>其余字母小写</code></li>
+<li><code>不同词段使用下划线隔开</code></li>
+</ol>
+<p>的命名格式<br>例如:</p>
+<ul>
+<li>MyClass &#x3D;&#x3D;&#x3D; ThreadException &#x3D;&#x3D;&#x3D; MainWindow_TitleBar</li>
+<li>MainWindow_Reload() &#x3D;&#x3D;&#x3D; App_OnStartup()</li>
+<li>Project.Namespace.MyClassName</li>
+</ul>
+<h2 id="小驼峰命名法"><a href="#小驼峰命名法" class="headerlink" title="小驼峰命名法"></a>小驼峰命名法</h2><blockquote>
+<p>建议的命名范围: 变量&#x2F;常量, 函数参数名, 函数参数列表</p>
+</blockquote>
+<hr>
+<p>小驼峰命名法指的是 ☞ 在大驼峰命名法的基础上, 将第一个单词的首字母小写<br>例如:</p>
+<ul>
+<li>name, path, fileName</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>GO</title>
+    <url>/rules/style/go/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>CSS3</title>
+    <url>/rules/style/css/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Delphi</title>
+    <url>/rules/style/delphi/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>JavaScript</title>
+    <url>/rules/style/javascript/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Java</title>
+    <url>/rules/style/java/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Julia</title>
+    <url>/rules/style/julia/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Lua</title>
+    <url>/rules/style/lua/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Kotlin</title>
+    <url>/rules/style/kotlin/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>PHP</title>
+    <url>/rules/style/php/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Python</title>
+    <url>/rules/style/python/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Rust</title>
+    <url>/rules/style/rust/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Ruby</title>
+    <url>/rules/style/ruby/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Shell</title>
+    <url>/rules/style/shell/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>SQL</title>
+    <url>/rules/style/sql/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Scala</title>
+    <url>/rules/style/scala/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title></title>
-    <url>/apps/kitx/java/index.html</url>
+    <url>/apps/kitx/ccpp/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>TypeScript</title>
+    <url>/rules/style/typescript/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Swift</title>
+    <url>/rules/style/swift/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -105,13 +240,171 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>使用 Git 的项目合作</title>
+    <url>/rules/team/git/index.html</url>
+    <content><![CDATA[<p><a id="markdown-markdown-header-目录" name="markdown-header-目录"></a></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- TOC -->
+
+<ul>
+<li><a href="#markdown-header-%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#markdown-header-git-%E7%AE%80%E4%BB%8B">Git 简介</a></li>
+<li><a href="#markdown-header-git-%E5%88%9D%E4%BD%93%E9%AA%8C">Git 初体验</a><ul>
+<li><a href="#markdown-header-git-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD-bushi">Git 安装与卸载 (bushi)</a><ul>
+<li><a href="#markdown-header-windows">Windows</a></li>
+<li><a href="#markdown-header-linux">Linux</a><ul>
+<li><a href="#markdown-header-debian">Debian</a></li>
+<li><a href="#markdown-header-red-hat">Red Hat</a></li>
+<li><a href="#markdown-header-%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85">使用源码进行安装</a></li>
+<li><a href="#markdown-header-%E9%85%8D%E7%BD%AE">配置</a><ul>
+<li><a href="#markdown-header-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">用户信息</a></li>
+<li><a href="#markdown-header-%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86">配置代理</a></li>
+<li><a href="#markdown-header-%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF">查看配置信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#markdown-header-%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%94%B9%E4%B8%8E%E6%96%87%E4%BB%B6%E8%BF%BD%E8%B8%AA">代码更改与文件追踪</a></li>
+<li><a href="#markdown-header-%E6%8F%90%E4%BA%A4%E6%B6%88%E6%81%AF%E8%A7%84%E8%8C%83">提交消息规范</a><ul>
+<li><a href="#markdown-header-%E6%A0%BC%E5%BC%8F">格式</a></li>
+<li><a href="#markdown-header-%E5%A4%9A%E8%A1%8C%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9">多行补充内容</a></li>
+</ul>
+</li>
+<li><a href="#markdown-header-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B">分支简介</a></li>
+<li><a href="#markdown-header-%E5%85%B3%E4%BA%8E-pull-request">关于 Pull Request</a></li>
+<li><a href="#markdown-header-%E6%A0%87%E7%AD%BE">标签</a></li>
+<li><a href="#markdown-header-%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-git-%E6%9C%8D%E5%8A%A1%E5%99%A8">搭建私有 Git 服务器</a></li>
+<li><a href="#markdown-header-%E4%BD%BF%E7%94%A8-git-%E7%9A%84%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C">使用 Git 的团队协作</a></li>
+</ul>
+<!-- /TOC -->
+
+<p><a id="markdown-markdown-header-git-简介" name="markdown-header-git-简介"></a></p>
+<h1 id="Git-简介"><a href="#Git-简介" class="headerlink" title="Git 简介"></a>Git 简介</h1><blockquote>
+<p>Git 是一个开源的分布式版本控制系统, 用于敏捷高效地处理任何或小或大的项目.<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件.<br>Git 与常用的版本控制工具 CVS, Subversion 等不同, 它采用了分布式版本库的方式, 不必服务器端软件支持.  </p>
+</blockquote>
+<p>以上简介来自<a href="https://www.runoob.com/git/git-tutorial.html">菜鸟教程</a></p>
+<p><a id="markdown-markdown-header-git-初体验" name="markdown-header-git-初体验"></a></p>
+<h1 id="Git-初体验"><a href="#Git-初体验" class="headerlink" title="Git 初体验"></a>Git 初体验</h1><p><a id="markdown-markdown-header-git-安装与卸载-bushi" name="markdown-header-git-安装与卸载-bushi"></a></p>
+<h2 id="Git-安装与卸载-bushi"><a href="#Git-安装与卸载-bushi" class="headerlink" title="Git 安装与卸载 (bushi)"></a>Git 安装与卸载 (bushi)</h2><p><a id="markdown-markdown-header-windows" name="markdown-header-windows"></a></p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>前往 <a href="https://git-scm.com/">Git 官网</a> 下载最新版本的 Git 安装包<br>执行该安装包, 一路默认即可 (有能力的可以修改一些配置)<br>执行完毕之后检查是否安装成功:</p>
+<ol>
+<li>打开 PowerShell 窗口</li>
+<li>输入 git 并回车执行</li>
+<li>检查输出, 如果输出正常, 则表示安装成功</li>
+</ol>
+<p><a id="markdown-markdown-header-linux" name="markdown-header-linux"></a></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p><a id="markdown-markdown-header-debian" name="markdown-header-debian"></a></p>
+<h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><blockquote>
+<p>此分类特指 Debian 系 Linux, 如: [Ubuntu, Mint, Elementary, Zorin, …]</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade <span class="comment"># 此行是可选的</span></span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
+<p>若安装失败, 尝试安装以下库之后再试:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev</span><br></pre></td></tr></table></figure>
+
+<p><a id="markdown-markdown-header-red-hat" name="markdown-header-red-hat"></a></p>
+<h4 id="Red-Hat"><a href="#Red-Hat" class="headerlink" title="Red Hat"></a>Red Hat</h4><blockquote>
+<p>此分类特指 Red Hat 系 Linux, 如: [CentOS, Fedora, RHEL, …]</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum upgrade <span class="comment"># 此行是可选的</span></span><br><span class="line">sudo yum -y install git-core</span><br></pre></td></tr></table></figure>
+<p>若安装失败, 尝试安装以下库之后再试:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br></pre></td></tr></table></figure>
+
+<p><a id="markdown-markdown-header-使用源码进行安装" name="markdown-header-使用源码进行安装"></a></p>
+<h4 id="使用源码进行安装"><a href="#使用源码进行安装" class="headerlink" title="使用源码进行安装"></a>使用源码进行安装</h4><p>前往 <a href="https://git-scm.com/">Git 官网</a> 下载最新版本的 Git 的源码包<br>依照前两小节, 安装指定系统的依赖包, 并解压源码包<br>参照以下指令安装  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxf git-1.7.2.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> git-1.7.2.2</span><br><span class="line">make prefix=/usr/local all</span><br><span class="line">sudo make prefix=/usr/local install</span><br></pre></td></tr></table></figure>
+
+<p><a id="markdown-markdown-header-配置" name="markdown-header-配置"></a></p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p><a id="markdown-markdown-header-用户信息" name="markdown-header-用户信息"></a></p>
+<h5 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h5><p>配置个人的用户名称与电子邮件地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;&lt;用户名&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;电子邮件地址&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>请将 <code>&lt;用户名&gt;</code> 和 <code>&lt;电子邮件地址&gt;</code> 替换为你的用户名称和电子邮件地址<br>同时要求该电子邮件地址尽可能与 GitHub 绑定的电子邮件地址一致(如果你使用 GitHub 来团队协作的话)  </p>
+<hr>
+<p><a id="markdown-markdown-header-配置代理" name="markdown-header-配置代理"></a></p>
+<h5 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h5><p>因为一些众所周知的原因, 大陆访问 GitHub 的速度可以以亿万分之一个光速来计量<br>因此, 我们往往会使用一些魔法来让 Git 可以访问 GitHub  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&quot;http://&lt;代理服务器地址&gt;:&lt;代理服务器端口&gt;&quot;</span></span><br><span class="line">git config --global https.proxy <span class="string">&quot;https://&lt;代理服务器地址&gt;:&lt;代理服务器端口&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<p>请将 <code>&lt;代理服务器地址&gt;</code> 和 <code>&lt;代理服务器端口&gt;</code> 替换为你的代理服务器地址和端口</p>
+<hr>
+<p><a id="markdown-markdown-header-查看配置信息" name="markdown-header-查看配置信息"></a></p>
+<h5 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h5><p>要检查已有的配置信息, 可以使用 <code>git config --list</code> 命令<br>有时候会看到重复的变量名, 那就说明它们来自不同的配置文件（比如 &#x2F;etc&#x2F;gitconfig 和 ~&#x2F;.gitconfig）, 不过最终 Git 实际采用的是最后一个.<br>这些配置我们也可以在 ~&#x2F;.gitconfig 或 &#x2F;etc&#x2F;gitconfig 看到.  </p>
+<p><a id="markdown-markdown-header-代码更改与文件追踪" name="markdown-header-代码更改与文件追踪"></a></p>
+<h1 id="代码更改与文件追踪"><a href="#代码更改与文件追踪" class="headerlink" title="代码更改与文件追踪"></a>代码更改与文件追踪</h1><p>对于 Git 而言, 仓库下的文件有四种状态</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Untrack  -&gt;  未追踪     -&gt;  一般是新创建的文件, 需要通过 `git add` 来追踪</span><br><span class="line">Modified -&gt;  修改过的   -&gt;  需要通过 `git commit` 来提交更改</span><br><span class="line">Normal   -&gt;  正常       -&gt;  需要通过 `git commit` 来提交更改</span><br><span class="line">Delete   -&gt;  已删除     -&gt;  一般是已追踪的但是被删除的文件, 需要通过 `git commit` 来提交更改</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过 <code>git add</code> 添加的文件, Git 会追踪器更改, 一旦发生更改, Git 会将其标记为 <code>Modified</code> 状态  </li>
+<li>通过 <code>git rm</code> 移除的文件, Git 不再追踪其更改, 但是仍然会保留其历史记录  </li>
+<li>通过 <code>git commit</code> 提交的文件, Git 会将其标记为 <code>Normal</code> 状态, 并且从暂存区或者工作区直接加入版本库</li>
+</ul>
+<p><a id="markdown-markdown-header-提交消息规范" name="markdown-header-提交消息规范"></a></p>
+<h1 id="提交消息规范"><a href="#提交消息规范" class="headerlink" title="提交消息规范"></a>提交消息规范</h1><p>在 Git 的使用中, 我们会使用 <code>git commit</code> 来提交我们的更改<br>这个命令可以使用 <code>-m &quot;&lt;消息&gt;&quot;</code> 参数指定提交消息<br>这个消息会被记录在提交记录中, 同时也会被显示在 GitHub 中<br>那么这个消息的格式便显得极为重要, 因为这能让协作者更好的理解你的更改<br>同时方便日后查错以及紧急回滚<br>以下是常青园使用的消息规范:<br><a id="markdown-markdown-header-格式" name="markdown-header-格式"></a></p>
+<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;EMOJI&gt; &lt;TYPE&gt;(&lt;SCOPE&gt;): &lt;SUBJECT&gt;</span><br></pre></td></tr></table></figure>
+<p>其中: </p>
+<ul>
+<li><code>&lt;EMOJI&gt;</code> 可选项, 表示一个表情符号, 与 <code>&lt;TYPE&gt;</code> 相对应, 使用它能够方便查找, 而且增加了趣味性</li>
+<li><code>&lt;TYPE&gt;</code> 表示提交类型, 可选项如下:<ul>
+<li>💾 <code>Feat</code>: 表示这次更改增加了新功能或者削减了原有的功能</li>
+<li>🔧 <code>Fix</code>: 表示这次更改修复了一个 bug, 此类提交往往还携带 <code>Close #7.</code> 此类语句, 用于在 GitHub 上关闭一个 <code>issue</code>.</li>
+<li>📄 <code>Docs</code>: 表示这次更改修改了文档</li>
+<li>🎇 <code>Style</code>: 表示这次更改修改了代码风格, 但没有影响实质性的逻辑</li>
+<li>🧩 <code>Refactor</code>: 表示这次更改重构了代码</li>
+<li>✔️ <code>Test</code>: 表示这次更改测试了一个功能, 往往是单元测试, 同时在 <code>&lt;SUBJECT&gt;</code> 中也会包含测试的结果, 是否通过, 若未通过请将 <code>&lt;EMOJI&gt;</code> 更换为 ❌</li>
+<li>📝 <code>Chore</code>: 表示这次更改修改了构建文件, 一般是项目维护程序或者是 IDE 生成的文件, 例如: .sln, .gitignore, makefile 等等</li>
+<li>📦 <code>Struct</code>: 表示这次更改调整了目录结构, 移动文件, 但不涉及到代码的改动</li>
+</ul>
+</li>
+<li><code>&lt;SCOPE&gt;</code>: 可选项, 表示这次更改作用的范围, 可以是单个文件或者是文件夹的名称</li>
+<li><code>&lt;SUBJECT&gt;</code>: 主题消息, 用于大致描述更改的内容, 且与 <code>&lt;TYPE&gt;</code> 对应</li>
+</ul>
+<p>以下是几个 message 样例:  </p>
+<ol>
+<li>💾 Feat(MainWindow.xaml.cs): Added a new view for user login.</li>
+<li>🔧 Fix: Error on no clients was soluted. Close #14.</li>
+<li>📄 Docs(README): New items added.</li>
+<li>🎇 Style(All): Move ‘{‘ after function to new line.</li>
+<li>🧩 Refactor: All <code>Student</code> class was created from <code>Human</code>.</li>
+<li>✔️ Test: Fibonacci sequence gennerator passed test.</li>
+<li>❌ Test: Fibonacci sequence gennerator didn’t passed test.</li>
+<li>📝 Chore: Updated .gitignore, added <code>.exe</code> .</li>
+<li>📦 Struct: Moved <code>Human</code> class to <code>Human</code> folder.</li>
+</ol>
+<p><a id="markdown-markdown-header-多行补充内容" name="markdown-header-多行补充内容"></a></p>
+<h2 id="多行补充内容"><a href="#多行补充内容" class="headerlink" title="多行补充内容"></a>多行补充内容</h2><p>在 <a href="#markdown-markdown-header-%E6%A0%BC%E5%BC%8F"><code>格式</code></a> 一节中, 简述了单行 message 的格式要求<br>本节简述一下多行 message 中的格式要求<br>一般而言, 仅要求 message 第一行要按照前一节版式进行, 对多行 message 后文的版式不做要求<br>所以仅在此提出几点建议: </p>
+<ol>
+<li>对于涉及到的协作人员, 请 <code>@</code> TA, 同时请写完整 TA 的提交名称, 以便于 GitHub 能够正确给出指向链接</li>
+</ol>
+<p><a id="markdown-markdown-header-分支简介" name="markdown-header-分支简介"></a></p>
+<h1 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h1><p>请参阅<a href="https://www.runoob.com/git/git-workspace-index-repo.html"><code>Git 工作区, 暂存区和版本库</code></a>, 感谢菜鸟教程</p>
+<p><a id="markdown-markdown-header-关于-pull-request" name="markdown-header-关于-pull-request"></a></p>
+<h1 id="关于-Pull-Request"><a href="#关于-Pull-Request" class="headerlink" title="关于 Pull Request"></a>关于 Pull Request</h1><p><a id="markdown-markdown-header-标签" name="markdown-header-标签"></a></p>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p><a id="markdown-markdown-header-搭建私有-git-服务器" name="markdown-header-搭建私有-git-服务器"></a></p>
+<h1 id="搭建私有-Git-服务器"><a href="#搭建私有-Git-服务器" class="headerlink" title="搭建私有 Git 服务器"></a>搭建私有 Git 服务器</h1><p><a id="markdown-markdown-header-使用-git-的团队协作" name="markdown-header-使用-git-的团队协作"></a></p>
+<h1 id="使用-Git-的团队协作"><a href="#使用-Git-的团队协作" class="headerlink" title="使用 Git 的团队协作"></a>使用 Git 的团队协作</h1>]]></content>
+  </entry>
+  <entry>
     <title></title>
     <url>/apps/kitx/python/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Assembly - 汇编</title>
-    <url>/rules/style/assembly/index.html</url>
+    <title>Discord</title>
+    <url>/rules/team/discord/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>GitHub</title>
+    <url>/rules/team/github/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/apps/kitx/cs/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/apps/kitx/java/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -373,298 +666,5 @@
 </tr>
 </tbody></table>
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/apps/kitx/cs/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>CSS3</title>
-    <url>/rules/style/css/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>C/C++ - 编码样式</title>
-    <url>/rules/style/ccpp/index.html</url>
-    <content><![CDATA[<h1 id="名家经验"><a href="#名家经验" class="headerlink" title="名家经验"></a>名家经验</h1><p>特别声明: 感谢 <a href="https://github.com/Ctkon"><code>@Ctkon</code></a> 提供的经验<br>总结提炼即是:</p>
-<ol>
-<li>#define 少使用宏定义, 定义常量时, 可以使用 const 关键字, 并且不适用 #define 定义关键词或者符号</li>
-<li>多次使用的常量一定要使用 const 关键字</li>
-<li>即使是 void 类型的函数也请使用 return 语句</li>
-<li>压缩代码行数不是一个好主意, 这并不能显示水平的高低, 建议使用注释来提示代码的结构</li>
-<li>在 OI 竞赛中, 命名请使用熟知的缩写, 在工程中要遵循命名规范</li>
-<li>循环语句中, 如果只有一条语句, 则可以不适用 {} , 并在一行内完成</li>
-</ol>
-<p>以下是原文:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> e 2.78</span></span><br><span class="line"><span class="comment">//define 的内容必须为公认的常量 拒绝&quot;define int long long&quot;</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">1e6</span>+<span class="number">7</span>;</span><br><span class="line"><span class="comment">//自己会多次用到的常量一定要const</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//大括号请打在括号后面 </span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line"><span class="comment">//即使是void也请打上return </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请一定要有init()函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;-x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//即使只有一行的函数也请换行出来</span></span><br><span class="line"><span class="type">int</span> trie_idx;</span><br><span class="line"><span class="comment">//多个单词请使用下划线连接</span></span><br><span class="line"><span class="comment">//一些缩写请使用大家公知的缩写</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> rp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)rp++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        rp++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,rp); </span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环内容只有一行可以合并单行，但是多行不行 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            rp++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//循环套循环请不要使用缩进代替括号 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Delphi</title>
-    <url>/rules/style/delphi/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>C# - 编码样式</title>
-    <url>/rules/style/csharp/index.html</url>
-    <content><![CDATA[<p>本篇文章是建议性的, 不是必须的.<br>当然, 对其进行采纳也是极好的.</p>
-<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><blockquote>
-<p>命名规范是一个非常重要的规范, 因为它决定了你的代码的可读性.<br>此处命名范围包括: 变量&#x2F;常量, 字段, 属性, 函数, 函数参数名, 类, 接口, 枚举, 包, 命名空间.</p>
-</blockquote>
-<h2 id="大驼峰命名法"><a href="#大驼峰命名法" class="headerlink" title="大驼峰命名法"></a>大驼峰命名法</h2><blockquote>
-<p>建议的命名范围: 字段, 属性, 函数, 类, 接口, 枚举, 包, 命名空间<br>之所以采用大驼峰命名法, 主要是因为 DotNet 基础库中全面使用此规范.<br>尽管特立独行使用小驼峰命名法, 但是这是不被迎合的.<br>保持一致能够使得代码更加可读, 并且更加易于维护.</p>
-</blockquote>
-<hr>
-<p>大驼峰命名法指的是 ☞</p>
-<ol>
-<li><code>像驼峰一般起伏</code></li>
-<li><code>具有实义的英文单词首字母大写</code></li>
-<li><code>其余字母小写</code></li>
-<li><code>不同词段使用下划线隔开</code></li>
-</ol>
-<p>的命名格式<br>例如:</p>
-<ul>
-<li>MyClass &#x3D;&#x3D;&#x3D; ThreadException &#x3D;&#x3D;&#x3D; MainWindow_TitleBar</li>
-<li>MainWindow_Reload() &#x3D;&#x3D;&#x3D; App_OnStartup()</li>
-<li>Project.Namespace.MyClassName</li>
-</ul>
-<h2 id="小驼峰命名法"><a href="#小驼峰命名法" class="headerlink" title="小驼峰命名法"></a>小驼峰命名法</h2><blockquote>
-<p>建议的命名范围: 变量&#x2F;常量, 函数参数名, 函数参数列表</p>
-</blockquote>
-<hr>
-<p>小驼峰命名法指的是 ☞ 在大驼峰命名法的基础上, 将第一个单词的首字母小写<br>例如:</p>
-<ul>
-<li>name, path, fileName</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>JavaScript</title>
-    <url>/rules/style/javascript/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>GO</title>
-    <url>/rules/style/go/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Julia</title>
-    <url>/rules/style/julia/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Java</title>
-    <url>/rules/style/java/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Ruby</title>
-    <url>/rules/style/ruby/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Kotlin</title>
-    <url>/rules/style/kotlin/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Lua</title>
-    <url>/rules/style/lua/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Rust</title>
-    <url>/rules/style/rust/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Scala</title>
-    <url>/rules/style/scala/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>PHP</title>
-    <url>/rules/style/php/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Shell</title>
-    <url>/rules/style/shell/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>SQL</title>
-    <url>/rules/style/sql/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Swift</title>
-    <url>/rules/style/swift/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>TypeScript</title>
-    <url>/rules/style/typescript/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Python</title>
-    <url>/rules/style/python/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Discord</title>
-    <url>/rules/team/discord/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>使用 Git 的项目合作</title>
-    <url>/rules/team/git/index.html</url>
-    <content><![CDATA[<p><a id="markdown-markdown-header-目录" name="markdown-header-目录"></a></p>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- TOC -->
-
-<ul>
-<li><a href="#markdown-header-%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#markdown-header-git-%E7%AE%80%E4%BB%8B">Git 简介</a></li>
-<li><a href="#markdown-header-git-%E5%88%9D%E4%BD%93%E9%AA%8C">Git 初体验</a><ul>
-<li><a href="#markdown-header-git-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8D%B8%E8%BD%BD-bushi">Git 安装与卸载 (bushi)</a><ul>
-<li><a href="#markdown-header-windows">Windows</a></li>
-<li><a href="#markdown-header-linux">Linux</a><ul>
-<li><a href="#markdown-header-debian">Debian</a></li>
-<li><a href="#markdown-header-red-hat">Red Hat</a></li>
-<li><a href="#markdown-header-%E4%BD%BF%E7%94%A8%E6%BA%90%E7%A0%81%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85">使用源码进行安装</a></li>
-<li><a href="#markdown-header-%E9%85%8D%E7%BD%AE">配置</a><ul>
-<li><a href="#markdown-header-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF">用户信息</a></li>
-<li><a href="#markdown-header-%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86">配置代理</a></li>
-<li><a href="#markdown-header-%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF">查看配置信息</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#markdown-header-%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%94%B9%E4%B8%8E%E6%96%87%E4%BB%B6%E8%BF%BD%E8%B8%AA">代码更改与文件追踪</a></li>
-<li><a href="#markdown-header-%E6%8F%90%E4%BA%A4%E6%B6%88%E6%81%AF%E8%A7%84%E8%8C%83">提交消息规范</a><ul>
-<li><a href="#markdown-header-%E6%A0%BC%E5%BC%8F">格式</a></li>
-<li><a href="#markdown-header-%E5%A4%9A%E8%A1%8C%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9">多行补充内容</a></li>
-</ul>
-</li>
-<li><a href="#markdown-header-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B">分支简介</a></li>
-<li><a href="#markdown-header-%E5%85%B3%E4%BA%8E-pull-request">关于 Pull Request</a></li>
-<li><a href="#markdown-header-%E6%A0%87%E7%AD%BE">标签</a></li>
-<li><a href="#markdown-header-%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89-git-%E6%9C%8D%E5%8A%A1%E5%99%A8">搭建私有 Git 服务器</a></li>
-<li><a href="#markdown-header-%E4%BD%BF%E7%94%A8-git-%E7%9A%84%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C">使用 Git 的团队协作</a></li>
-</ul>
-<!-- /TOC -->
-
-<p><a id="markdown-markdown-header-git-简介" name="markdown-header-git-简介"></a></p>
-<h1 id="Git-简介"><a href="#Git-简介" class="headerlink" title="Git 简介"></a>Git 简介</h1><blockquote>
-<p>Git 是一个开源的分布式版本控制系统, 用于敏捷高效地处理任何或小或大的项目.<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件.<br>Git 与常用的版本控制工具 CVS, Subversion 等不同, 它采用了分布式版本库的方式, 不必服务器端软件支持.  </p>
-</blockquote>
-<p>以上简介来自<a href="https://www.runoob.com/git/git-tutorial.html">菜鸟教程</a></p>
-<p><a id="markdown-markdown-header-git-初体验" name="markdown-header-git-初体验"></a></p>
-<h1 id="Git-初体验"><a href="#Git-初体验" class="headerlink" title="Git 初体验"></a>Git 初体验</h1><p><a id="markdown-markdown-header-git-安装与卸载-bushi" name="markdown-header-git-安装与卸载-bushi"></a></p>
-<h2 id="Git-安装与卸载-bushi"><a href="#Git-安装与卸载-bushi" class="headerlink" title="Git 安装与卸载 (bushi)"></a>Git 安装与卸载 (bushi)</h2><p><a id="markdown-markdown-header-windows" name="markdown-header-windows"></a></p>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>前往 <a href="https://git-scm.com/">Git 官网</a> 下载最新版本的 Git 安装包<br>执行该安装包, 一路默认即可 (有能力的可以修改一些配置)<br>执行完毕之后检查是否安装成功:</p>
-<ol>
-<li>打开 PowerShell 窗口</li>
-<li>输入 git 并回车执行</li>
-<li>检查输出, 如果输出正常, 则表示安装成功</li>
-</ol>
-<p><a id="markdown-markdown-header-linux" name="markdown-header-linux"></a></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p><a id="markdown-markdown-header-debian" name="markdown-header-debian"></a></p>
-<h4 id="Debian"><a href="#Debian" class="headerlink" title="Debian"></a>Debian</h4><blockquote>
-<p>此分类特指 Debian 系 Linux, 如: [Ubuntu, Mint, Elementary, Zorin, …]</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade <span class="comment"># 此行是可选的</span></span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure>
-<p>若安装失败, 尝试安装以下库之后再试:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev</span><br></pre></td></tr></table></figure>
-
-<p><a id="markdown-markdown-header-red-hat" name="markdown-header-red-hat"></a></p>
-<h4 id="Red-Hat"><a href="#Red-Hat" class="headerlink" title="Red Hat"></a>Red Hat</h4><blockquote>
-<p>此分类特指 Red Hat 系 Linux, 如: [CentOS, Fedora, RHEL, …]</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum upgrade <span class="comment"># 此行是可选的</span></span><br><span class="line">sudo yum -y install git-core</span><br></pre></td></tr></table></figure>
-<p>若安装失败, 尝试安装以下库之后再试:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br></pre></td></tr></table></figure>
-
-<p><a id="markdown-markdown-header-使用源码进行安装" name="markdown-header-使用源码进行安装"></a></p>
-<h4 id="使用源码进行安装"><a href="#使用源码进行安装" class="headerlink" title="使用源码进行安装"></a>使用源码进行安装</h4><p>前往 <a href="https://git-scm.com/">Git 官网</a> 下载最新版本的 Git 的源码包<br>依照前两小节, 安装指定系统的依赖包, 并解压源码包<br>参照以下指令安装  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxf git-1.7.2.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> git-1.7.2.2</span><br><span class="line">make prefix=/usr/local all</span><br><span class="line">sudo make prefix=/usr/local install</span><br></pre></td></tr></table></figure>
-
-<p><a id="markdown-markdown-header-配置" name="markdown-header-配置"></a></p>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p><a id="markdown-markdown-header-用户信息" name="markdown-header-用户信息"></a></p>
-<h5 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h5><p>配置个人的用户名称与电子邮件地址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;&lt;用户名&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;电子邮件地址&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-<p>请将 <code>&lt;用户名&gt;</code> 和 <code>&lt;电子邮件地址&gt;</code> 替换为你的用户名称和电子邮件地址<br>同时要求该电子邮件地址尽可能与 GitHub 绑定的电子邮件地址一致(如果你使用 GitHub 来团队协作的话)  </p>
-<hr>
-<p><a id="markdown-markdown-header-配置代理" name="markdown-header-配置代理"></a></p>
-<h5 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h5><p>因为一些众所周知的原因, 大陆访问 GitHub 的速度可以以亿万分之一个光速来计量<br>因此, 我们往往会使用一些魔法来让 Git 可以访问 GitHub  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&quot;http://&lt;代理服务器地址&gt;:&lt;代理服务器端口&gt;&quot;</span></span><br><span class="line">git config --global https.proxy <span class="string">&quot;https://&lt;代理服务器地址&gt;:&lt;代理服务器端口&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-<p>请将 <code>&lt;代理服务器地址&gt;</code> 和 <code>&lt;代理服务器端口&gt;</code> 替换为你的代理服务器地址和端口</p>
-<hr>
-<p><a id="markdown-markdown-header-查看配置信息" name="markdown-header-查看配置信息"></a></p>
-<h5 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h5><p>要检查已有的配置信息, 可以使用 <code>git config --list</code> 命令<br>有时候会看到重复的变量名, 那就说明它们来自不同的配置文件（比如 &#x2F;etc&#x2F;gitconfig 和 ~&#x2F;.gitconfig）, 不过最终 Git 实际采用的是最后一个.<br>这些配置我们也可以在 ~&#x2F;.gitconfig 或 &#x2F;etc&#x2F;gitconfig 看到.  </p>
-<p><a id="markdown-markdown-header-代码更改与文件追踪" name="markdown-header-代码更改与文件追踪"></a></p>
-<h1 id="代码更改与文件追踪"><a href="#代码更改与文件追踪" class="headerlink" title="代码更改与文件追踪"></a>代码更改与文件追踪</h1><p>对于 Git 而言, 仓库下的文件有四种状态</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Untrack  -&gt;  未追踪     -&gt;  一般是新创建的文件, 需要通过 `git add` 来追踪</span><br><span class="line">Modified -&gt;  修改过的   -&gt;  需要通过 `git commit` 来提交更改</span><br><span class="line">Normal   -&gt;  正常       -&gt;  需要通过 `git commit` 来提交更改</span><br><span class="line">Delete   -&gt;  已删除     -&gt;  一般是已追踪的但是被删除的文件, 需要通过 `git commit` 来提交更改</span><br></pre></td></tr></table></figure>
-<ul>
-<li>通过 <code>git add</code> 添加的文件, Git 会追踪器更改, 一旦发生更改, Git 会将其标记为 <code>Modified</code> 状态  </li>
-<li>通过 <code>git rm</code> 移除的文件, Git 不再追踪其更改, 但是仍然会保留其历史记录  </li>
-<li>通过 <code>git commit</code> 提交的文件, Git 会将其标记为 <code>Normal</code> 状态, 并且从暂存区或者工作区直接加入版本库</li>
-</ul>
-<p><a id="markdown-markdown-header-提交消息规范" name="markdown-header-提交消息规范"></a></p>
-<h1 id="提交消息规范"><a href="#提交消息规范" class="headerlink" title="提交消息规范"></a>提交消息规范</h1><p>在 Git 的使用中, 我们会使用 <code>git commit</code> 来提交我们的更改<br>这个命令可以使用 <code>-m &quot;&lt;消息&gt;&quot;</code> 参数指定提交消息<br>这个消息会被记录在提交记录中, 同时也会被显示在 GitHub 中<br>那么这个消息的格式便显得极为重要, 因为这能让协作者更好的理解你的更改<br>同时方便日后查错以及紧急回滚<br>以下是常青园使用的消息规范:<br><a id="markdown-markdown-header-格式" name="markdown-header-格式"></a></p>
-<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;EMOJI&gt; &lt;TYPE&gt;(&lt;SCOPE&gt;): &lt;SUBJECT&gt;</span><br></pre></td></tr></table></figure>
-<p>其中: </p>
-<ul>
-<li><code>&lt;EMOJI&gt;</code> 可选项, 表示一个表情符号, 与 <code>&lt;TYPE&gt;</code> 相对应, 使用它能够方便查找, 而且增加了趣味性</li>
-<li><code>&lt;TYPE&gt;</code> 表示提交类型, 可选项如下:<ul>
-<li>💾 <code>Feat</code>: 表示这次更改增加了新功能或者削减了原有的功能</li>
-<li>🔧 <code>Fix</code>: 表示这次更改修复了一个 bug, 此类提交往往还携带 <code>Close #7.</code> 此类语句, 用于在 GitHub 上关闭一个 <code>issue</code>.</li>
-<li>📄 <code>Docs</code>: 表示这次更改修改了文档</li>
-<li>🎇 <code>Style</code>: 表示这次更改修改了代码风格, 但没有影响实质性的逻辑</li>
-<li>🧩 <code>Refactor</code>: 表示这次更改重构了代码</li>
-<li>✔️ <code>Test</code>: 表示这次更改测试了一个功能, 往往是单元测试, 同时在 <code>&lt;SUBJECT&gt;</code> 中也会包含测试的结果, 是否通过, 若未通过请将 <code>&lt;EMOJI&gt;</code> 更换为 ❌</li>
-<li>📝 <code>Chore</code>: 表示这次更改修改了构建文件, 一般是项目维护程序或者是 IDE 生成的文件, 例如: .sln, .gitignore, makefile 等等</li>
-<li>📦 <code>Struct</code>: 表示这次更改调整了目录结构, 移动文件, 但不涉及到代码的改动</li>
-</ul>
-</li>
-<li><code>&lt;SCOPE&gt;</code>: 可选项, 表示这次更改作用的范围, 可以是单个文件或者是文件夹的名称</li>
-<li><code>&lt;SUBJECT&gt;</code>: 主题消息, 用于大致描述更改的内容, 且与 <code>&lt;TYPE&gt;</code> 对应</li>
-</ul>
-<p>以下是几个 message 样例:  </p>
-<ol>
-<li>💾 Feat(MainWindow.xaml.cs): Added a new view for user login.</li>
-<li>🔧 Fix: Error on no clients was soluted. Close #14.</li>
-<li>📄 Docs(README): New items added.</li>
-<li>🎇 Style(All): Move ‘{‘ after function to new line.</li>
-<li>🧩 Refactor: All <code>Student</code> class was created from <code>Human</code>.</li>
-<li>✔️ Test: Fibonacci sequence gennerator passed test.</li>
-<li>❌ Test: Fibonacci sequence gennerator didn’t passed test.</li>
-<li>📝 Chore: Updated .gitignore, added <code>.exe</code> .</li>
-<li>📦 Struct: Moved <code>Human</code> class to <code>Human</code> folder.</li>
-</ol>
-<p><a id="markdown-markdown-header-多行补充内容" name="markdown-header-多行补充内容"></a></p>
-<h2 id="多行补充内容"><a href="#多行补充内容" class="headerlink" title="多行补充内容"></a>多行补充内容</h2><p>在 <a href="#markdown-markdown-header-%E6%A0%BC%E5%BC%8F"><code>格式</code></a> 一节中, 简述了单行 message 的格式要求<br>本节简述一下多行 message 中的格式要求<br>一般而言, 仅要求 message 第一行要按照前一节版式进行, 对多行 message 后文的版式不做要求<br>所以仅在此提出几点建议: </p>
-<ol>
-<li>对于涉及到的协作人员, 请 <code>@</code> TA, 同时请写完整 TA 的提交名称, 以便于 GitHub 能够正确给出指向链接</li>
-</ol>
-<p><a id="markdown-markdown-header-分支简介" name="markdown-header-分支简介"></a></p>
-<h1 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h1><p>请参阅<a href="https://www.runoob.com/git/git-workspace-index-repo.html"><code>Git 工作区, 暂存区和版本库</code></a>, 感谢菜鸟教程</p>
-<p><a id="markdown-markdown-header-关于-pull-request" name="markdown-header-关于-pull-request"></a></p>
-<h1 id="关于-Pull-Request"><a href="#关于-Pull-Request" class="headerlink" title="关于 Pull Request"></a>关于 Pull Request</h1><p><a id="markdown-markdown-header-标签" name="markdown-header-标签"></a></p>
-<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><p><a id="markdown-markdown-header-搭建私有-git-服务器" name="markdown-header-搭建私有-git-服务器"></a></p>
-<h1 id="搭建私有-Git-服务器"><a href="#搭建私有-Git-服务器" class="headerlink" title="搭建私有 Git 服务器"></a>搭建私有 Git 服务器</h1><p><a id="markdown-markdown-header-使用-git-的团队协作" name="markdown-header-使用-git-的团队协作"></a></p>
-<h1 id="使用-Git-的团队协作"><a href="#使用-Git-的团队协作" class="headerlink" title="使用 Git 的团队协作"></a>使用 Git 的团队协作</h1>]]></content>
-  </entry>
-  <entry>
-    <title>GitHub</title>
-    <url>/rules/team/github/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
