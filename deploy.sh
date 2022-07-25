@@ -4,6 +4,7 @@ hexo clean
 hexo g
 
 cp -r old public/
+cp robots.txt public/
 
 git add public/*
 
